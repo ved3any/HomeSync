@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Register - Create Account</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2C097F",
+              secondary: "#FF007F",
+              "background-light": "#f6f6f8",
+              "background-dark": "#151022",
+              "input-bg-dark": "#1f1c27",
+              "input-border-dark": "#433b54",
+              "text-light": "#f0f0f0",
+              "text-dark": "#a59db9",
+            },
+            fontFamily: { display: "Manrope" },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="bg-background-light dark:bg-background-dark font-display">
+    <div class="relative flex min-h-screen w-full flex-col">
+      <!-- Header -->
+      <header class="flex items-center px-4 pt-4 pb-2">
+        <h1 class="flex-1 text-center text-lg font-bold text-text-light pt-2">
+          Create Account
+        </h1>
+      </header>
+      <main class="flex flex-1 flex-col px-6 pt-4 pb-8">
+        <div class="flex flex-col items-center pb-8">
+          <div
+            class="flex h-16 w-16 items-center justify-center rounded-2xl bg-primary/20"
+          >
+            <span class="material-symbols-outlined text-4xl text-primary"
+              >apartment</span
+            >
+          </div>
+        </div>
+        <!-- Form Fields -->
+        <div class="flex flex-col gap-y-4">
+          <!-- Full Name -->
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium text-text-dark">Full Name</p>
+            <input
+              id="name"
+              class="form-input flex h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-input-border-dark bg-input-bg-dark p-4 text-base font-normal text-text-light placeholder:text-text-dark/80 focus:border-primary focus:outline-0 focus:ring-0"
+              placeholder="Enter your full name"
+              type="text"
+              value=""
+            />
+          </label>
+          <!-- Email Address -->
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium text-text-dark">Email Address</p>
+            <input
+              id="email"
+              class="form-input flex h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-input-border-dark bg-input-bg-dark p-4 text-base font-normal text-text-light placeholder:text-text-dark/80 focus:border-primary focus:outline-0 focus:ring-0"
+              placeholder="Enter your email address"
+              type="email"
+              value=""
+            />
+          </label>
+          <!-- Mobile Number -->
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium text-text-dark">Mobile Number</p>
+            <div class="relative flex items-center">
+              <div class="absolute inset-y-0 left-0 flex items-center pl-4">
+                <div
+                  class="appearance-none border-none bg-transparent p-0 pr-4 text-base text-text-light focus:outline-none focus:ring-0"
+                >
+                  <p>🇮🇳 +91</p>
+                </div>
+              </div>
+              <input
+                id="mobile"
+                class="form-input flex h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-input-border-dark bg-input-bg-dark p-4 pl-20 text-base font-normal text-text-light placeholder:text-text-dark/80 focus:border-primary focus:outline-0 focus:ring-0"
+                placeholder="12345-67890"
+                type="tel"
+                value=""
+              />
+            </div>
+          </label>
+          <!-- Password -->
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium text-text-dark">Password</p>
+            <div class="relative flex w-full items-center">
+              <input
+                id="password"
+                class="form-input flex h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-input-border-dark bg-input-bg-dark p-4 pr-12 text-base font-normal text-text-light placeholder:text-text-dark/80 focus:border-primary focus:outline-0 focus:ring-0"
+                placeholder="Enter your password"
+                type="password"
+                value=""
+              />
+              <button
+                id="show-password-btn"
+                class="absolute right-0 mr-4 text-text-dark"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >visibility_off</span
+                >
+              </button>
+            </div>
+          </label>
+          <!-- Confirm Password -->
+          <label class="flex flex-col">
+            <p class="pb-2 text-sm font-medium text-text-dark">
+              Confirm Password
+            </p>
+            <div class="relative flex w-full items-center">
+              <input
+                id="confirm-password"
+                class="form-input flex h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-input-border-dark bg-input-bg-dark p-4 pr-12 text-base font-normal text-text-light placeholder:text-text-dark/80 focus:border-primary focus:outline-0 focus:ring-0"
+                placeholder="Confirm your password"
+                type="password"
+                value=""
+              />
+              <button
+                id="show-confirm-password-btn"
+                class="absolute right-0 mr-4 text-text-dark"
+              >
+                <span class="material-symbols-outlined text-2xl"
+                  >visibility_off</span
+                >
+              </button>
+            </div>
+          </label>
+        </div>
+        <!-- Terms and Conditions -->
+        <div class="flex items-start gap-x-3 pt-6">
+          <input
+            id="terms-checkbox"
+            class="form-checkbox mt-1 h-5 w-5 rounded border-input-border-dark bg-input-bg-dark text-primary focus:ring-primary/50 focus:ring-offset-background-dark"
+            type="checkbox"
+          />
+          <label class="text-sm text-text-dark" for="terms-checkbox">
+            By registering, you agree to our
+            <a class="font-semibold text-secondary" href="#"
+              >Terms of Service</a
+            >
+            &amp;
+            <a class="font-semibold text-secondary" href="#">Privacy Policy</a>.
+          </label>
+        </div>
+        <div id="error-msg" class="pt-4 text-md text-red-500 text-center">
+          <!-- Error messages will appear here -->
+        </div>
+        <div class="mt-auto flex flex-col items-center gap-y-4 pt-8">
+          <!-- Register Button -->
+          <button
+            id="register-btn"
+            class="h-14 w-full rounded-lg bg-primary text-base font-bold text-white transition-colors hover:bg-primary/90 disabled:opacity-50"
+          >
+            Register
+          </button>
+          <!-- Login Link -->
+          <p class="text-sm text-text-dark">
+            Already have an account?
+            <a class="font-bold text-secondary" href="/">Go Back!</a>
+          </p>
+        </div>
+      </main>
+    </div>
+  </body>
+  <script src="js/registerscript.js"></script>
+</html>

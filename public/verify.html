@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Verification - Verify Your Email</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2C097F",
+              "background-light": "#f6f6f8",
+              "background-dark": "#151022",
+              "accent-secondary": "#6A0DAD",
+              "text-light": "#F0F0F0",
+              "text-subtle": "#555766",
+              "border-error": "#FF3B30",
+            },
+            fontFamily: { display: "Manrope" },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style type="text/tailwindcss">
+      @layer base {
+        input[type="number"]::-webkit-inner-spin-button,
+        input[type="number"]::-webkit-outer-spin-button {
+          -webkit-appearance: none;
+          margin: 0;
+        }
+        input[type="number"] {
+          appearance: textfield;
+        }
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="font-display">
+    <div
+      class="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark group/design-root overflow-x-hidden"
+    >
+      <div
+        class="flex flex-col items-center justify-center flex-grow px-4 pb-8"
+      >
+        <div class="w-full max-w-sm text-center">
+          <!-- HeadlineText -->
+          <h1
+            class="text-text-light tracking-tight text-[32px] font-bold leading-tight pb-3 pt-6"
+          >
+            Verify Your Email
+          </h1>
+          <!-- BodyText -->
+          <p
+            class="text-text-subtle text-base font-normal leading-normal pb-3 pt-1"
+          >
+            Enter the 6-digit code we sent to your email address.
+          </p>
+          <!-- ConfirmationCode -->
+          <div class="flex justify-center py-6">
+            <fieldset class="relative flex gap-2 sm:gap-4">
+              <input
+                class="flex h-14 w-12 text-center text-lg font-semibold bg-transparent text-text-light rounded-lg border-2 border-text-subtle/50 focus:border-accent-secondary focus:ring-accent-secondary [appearance:textfield]"
+                max="9"
+                maxlength="1"
+                min="0"
+                type="number"
+                value=""
+              />
+              <input
+                class="flex h-14 w-12 text-center text-lg font-semibold bg-transparent text-text-light rounded-lg border-2 border-text-subtle/50 focus:border-accent-secondary focus:ring-accent-secondary [appearance:textfield]"
+                max="9"
+                maxlength="1"
+                min="0"
+                type="number"
+                value=""
+              />
+              <input
+                class="flex h-14 w-12 text-center text-lg font-semibold bg-transparent text-text-light rounded-lg border-2 border-text-subtle/50 focus:border-accent-secondary focus:ring-accent-secondary [appearance:textfield]"
+                max="9"
+                maxlength="1"
+                min="0"
+                type="number"
+                value=""
+              />
+              <input
+                class="flex h-14 w-12 text-center text-lg font-semibold bg-transparent text-text-light rounded-lg border-2 border-text-subtle/50 focus:border-accent-secondary focus:ring-accent-secondary [appearance:textfield]"
+                max="9"
+                maxlength="1"
+                min="0"
+                type="number"
+                value=""
+              />
+              <input
+                class="flex h-14 w-12 text-center text-lg font-semibold bg-transparent text-text-light rounded-lg border-2 border-text-subtle/50 focus:border-accent-secondary focus:ring-accent-secondary [appearance:textfield]"
+                max="9"
+                maxlength="1"
+                min="0"
+                type="number"
+                value=""
+              />
+              <input
+                class="flex h-14 w-12 text-center text-lg font-semibold bg-transparent text-text-light rounded-lg border-2 border-text-subtle/50 focus:border-accent-secondary focus:ring-accent-secondary [appearance:textfield]"
+                max="9"
+                maxlength="1"
+                min="0"
+                type="number"
+                value=""
+              />
+            </fieldset>
+          </div>
+          <!-- Error Message (Initially Hidden) -->
+          <p
+            id="error-message"
+            class="text-border-error text-sm font-normal leading-normal invisible pt-1"
+          >
+            The code you entered is incorrect. Please try again.
+          </p>
+        </div>
+      </div>
+      <div class="w-full p-4 space-y-4">
+        <!-- MetaText & Resend Link -->
+        <p
+          class="text-text-light text-center text-sm font-normal leading-normal"
+        >
+          Didn't receive a code?
+          <a
+            id="resend-link"
+            class="font-bold text-primary hover:underline"
+            href="#"
+            >Resend</a
+          >
+        </p>
+        <p
+          id="resend-timer"
+          class="text-text-subtle text-center text-sm font-normal leading-normal"
+        >
+          Resend in 00:59
+        </p>
+        <!-- Primary CTA -->
+        <button
+          id="verify-button"
+          class="w-full h-14 bg-primary text-white font-bold text-base rounded-xl disabled:bg-text-subtle disabled:cursor-not-allowed hover:bg-primary/90 transition-colors"
+          disabled
+        >
+          Verify &amp; Proceed
+        </button>
+      </div>
+    </div>
+  </body>
+  <script src="js/otpverificationscript.js"></script>
+</html>

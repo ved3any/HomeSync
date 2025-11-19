@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Welcome to HomeSync - Your Online Home Management System</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;700;800&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.1/css/all.min.css"
+      integrity="sha512-2SwdPD6INVrV/lHTZbO2nodKhrnDdJK9/kg2XD1r9uGqPo1cUbujc+IYdlYdEErWNu69gVcYgdxlmVmzTWnetw=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
+      rel="stylesheet"
+    />
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              primary: "#2C097F",
+              "background-light": "#f6f6f8",
+              "background-dark": "#151022",
+            },
+            fontFamily: { display: "Manrope" },
+            borderRadius: {
+              DEFAULT: "0.25rem",
+              lg: "0.5rem",
+              xl: "0.75rem",
+              full: "9999px",
+            },
+          },
+        },
+      };
+    </script>
+    <style>
+      .material-symbols-outlined {
+        font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+    <style>
+      body {
+        min-height: max(884px, 100dvh);
+      }
+    </style>
+  </head>
+  <body class="font-display bg-background-dark">
+    <div
+      id="landingpage"
+      class="relative flex h-auto min-h-screen w-full flex-col bg-background-dark group/design-root overflow-x-hidden"
+    >
+      <main class="flex flex-col grow">
+        <div class="flex flex-col items-center justify-start p-4 pt-6">
+          <img
+            src="images/HomeSync_Logo.png"
+            class="w-[250px] bg-center bg-no-repeat bg-contain aspect-auto flex-1 m-px"
+          />
+        </div>
+        <div class="flex flex-col grow items-center justify-center p-4">
+          <div
+            class="relative flex w-full grow bg-background-light dark:bg-background-dark @container max-w-sm"
+          >
+            <div
+              class="w-full gap-1 overflow-hidden bg-background-light dark:bg-background-dark @[480px]:gap-2 aspect-[1/1] flex"
+            >
+              <div
+                class="rounded-xl w-full bg-center bg-no-repeat bg-contain aspect-auto flex-1"
+                data-alt="Abstract illustration of interconnected modern buildings in shades of purple and pink."
+                style="
+                  background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCfaXbHCxOnjglqGumXC2jfRa-9ijZtVpWIxNKxbE_71pxXdDPbg2YTkGAo0v7MJ2XHY-j0sVCnUISxNySMcRzsFQRNAQ76cYRfhNRRtMLIrogXxGQ4K4_WHrXsXv80SqUQh30qQ4bmLH_ESLpUxiJxJl1_UhIyHaDzAtGPQJDK3AS2plQTJOAH-JYMaycsfwgr3OXVeBjMgIF8UAXTJkDYfOTG6uTKYP_fxMRP4kWjHG9O2uXA454eUy26y4DDjDFd7_D69tKqUJsa');
+                "
+              ></div>
+            </div>
+          </div>
+          <h1
+            class="text-white tracking-light text-[32px] font-bold leading-tight px-4 text-center pb-3 pt-6"
+          >
+            Welcome to HomeSync
+          </h1>
+          <p
+            class="text-white/80 text-base font-normal leading-normal pb-3 pt-1 px-4 text-center max-w-sm"
+          >
+            Make managing Residencies Easier, all in one place.
+          </p>
+        </div>
+        <div class="flex justify-center pb-8 pt-4">
+          <div
+            class="flex flex-1 gap-4 max-w-[480px] flex-col items-stretch px-4 py-3"
+          >
+            <button
+              id="register-btn"
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em] w-full hover:bg-primary/90"
+            >
+              <span class="truncate">Register</span>
+            </button>
+            <button
+              id="login-btn"
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 bg-primary/20 text-white text-base font-bold leading-normal tracking-[0.015em] w-full hover:bg-primary/30"
+            >
+              <span class="truncate">Login</span>
+            </button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div
+      id="loginpage"
+      class="hidden relative flex h-auto min-h-screen w-full flex-col items-center justify-center bg-background-dark p-4 group/design-root overflow-x-hidden"
+    >
+      <div class="w-full max-w-md space-y-8">
+        <div class="text-center space-y-2">
+          <h1
+            class="text-white tracking-light text-[32px] font-bold leading-tight"
+          >
+            Welcome Back
+          </h1>
+          <p class="text-[#8D99AE] text-base">Log in to your account</p>
+        </div>
+        <div class="space-y-4">
+          <div class="relative">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-white text-sm font-medium leading-normal pb-2">
+                Email Address
+              </p>
+              <div class="relative">
+                <span
+                  class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#8D99AE]"
+                >
+                  mail
+                </span>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border border-transparent bg-[#1C2541] focus:border-primary h-14 placeholder:text-[#8D99AE] pl-12 pr-4 text-base font-normal leading-normal"
+                  placeholder="Enter your email"
+                  type="email"
+                  value=""
+                />
+              </div>
+            </label>
+          </div>
+          <div class="relative">
+            <label class="flex flex-col min-w-40 flex-1">
+              <p class="text-white text-sm font-medium leading-normal pb-2">
+                Password
+              </p>
+              <div class="relative">
+                <span
+                  class="material-symbols-outlined absolute left-4 top-1/2 -translate-y-1/2 text-[#8D99AE]"
+                >
+                  lock
+                </span>
+                <input
+                  class="form-input flex w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg text-white focus:outline-0 focus:ring-0 border border-transparent bg-[#1C2541] focus:border-primary h-14 placeholder:text-[#8D99AE] pl-12 pr-4 text-base font-normal leading-normal"
+                  placeholder="Enter your password"
+                  type="password"
+                  value=""
+                />
+              </div>
+            </label>
+            <div class="text-right mt-2">
+              <a
+                class="text-[#8D99AE] text-sm font-normal leading-normal underline hover:text-white"
+                href="#"
+                >Forgot Password?</a
+              >
+            </div>
+          </div>
+        </div>
+        <div class="space-y-4 pt-2">
+          <div class="flex">
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 flex-1 bg-primary text-white text-base font-bold leading-normal tracking-[0.015em]"
+            >
+              <span class="truncate">Login</span>
+            </button>
+          </div>
+          <div class="relative flex items-center justify-center">
+            <div class="w-full border-t border-[#1C2541]"></div>
+            <span
+              class="absolute px-3 bg-background-dark text-[#8D99AE] text-sm"
+              >or</span
+            >
+          </div>
+          <div class="flex">
+            <button
+              class="flex min-w-[84px] max-w-[480px] cursor-pointer items-center justify-center overflow-hidden rounded-lg h-12 px-5 flex-1 bg-transparent border border-[#1C2541] hover:bg-[#1C2541]/50 text-white text-base font-bold leading-normal tracking-[0.015em] transition-colors duration-200"
+            >
+              <svg
+                class="mr-3"
+                xmlns="http://www.w3.org/2000/svg"
+                x="0px"
+                y="0px"
+                width="30"
+                height="30"
+                viewBox="0 0 48 48"
+              >
+                <path
+                  fill="#FFC107"
+                  d="M43.611,20.083H42V20H24v8h11.303c-1.649,4.657-6.08,8-11.303,8c-6.627,0-12-5.373-12-12c0-6.627,5.373-12,12-12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C12.955,4,4,12.955,4,24c0,11.045,8.955,20,20,20c11.045,0,20-8.955,20-20C44,22.659,43.862,21.35,43.611,20.083z"
+                ></path>
+                <path
+                  fill="#FF3D00"
+                  d="M6.306,14.691l6.571,4.819C14.655,15.108,18.961,12,24,12c3.059,0,5.842,1.154,7.961,3.039l5.657-5.657C34.046,6.053,29.268,4,24,4C16.318,4,9.656,8.337,6.306,14.691z"
+                ></path>
+                <path
+                  fill="#4CAF50"
+                  d="M24,44c5.166,0,9.86-1.977,13.409-5.192l-6.19-5.238C29.211,35.091,26.715,36,24,36c-5.202,0-9.619-3.317-11.283-7.946l-6.522,5.025C9.505,39.556,16.227,44,24,44z"
+                ></path>
+                <path
+                  fill="#1976D2"
+                  d="M43.611,20.083H42V20H24v8h11.303c-0.792,2.237-2.231,4.166-4.087,5.571c0.001-0.001,0.002-0.001,0.003-0.002l6.19,5.238C36.971,39.205,44,34,44,24C44,22.659,43.862,21.35,43.611,20.083z"
+                ></path>
+              </svg>
+              <span class="truncate">Continue with Google</span>
+            </button>
+          </div>
+        </div>
+        <div class="text-center pt-8">
+          <p class="text-[#8D99AE] text-sm">
+            Need to create an account?
+            <a id="lgnback-btn" class="font-bold text-white underline ml-1"
+              >Go Back</a
+            >
+          </p>
+        </div>
+      </div>
+    </div>
+  </body>
+  <script src="js/loginscript.js"></script>
+</html>
