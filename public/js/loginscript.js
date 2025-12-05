@@ -1,3 +1,5 @@
+import { createCookie, readCookie, createLoader, closeLoader } from './utils.js';
+
 document.addEventListener('DOMContentLoaded', function () {
   const registerBtn = document.getElementById('register-btn');
   const loginBtn = document.getElementById('login-btn');
@@ -8,6 +10,11 @@ document.addEventListener('DOMContentLoaded', function () {
   const emailInput = document.querySelector('#loginpage input[type="email"]');
   const passwordInput = document.querySelector('#loginpage input[type="password"]');
   const loginErrorMsg = document.querySelector('#loginpage .text-red-500');
+
+  if (!readCookie('token') || !readCookie('userId')) {
+    createCookie('token', '');
+    createCookie('userId', '');
+  }
 
   registerBtn.addEventListener('click', function () {
     window.location.href = '/register';
@@ -33,8 +40,8 @@ document.addEventListener('DOMContentLoaded', function () {
           if(loginErrorMsg) loginErrorMsg.textContent = 'Please fill in all fields.';
           return;
       }
-
-      fetch('/login', {
+      const loader = createLoader();
+      fetch('/api/auth/login', {
           method: 'POST',
           headers: {
               'Content-Type': 'application/json'
@@ -44,13 +51,17 @@ document.addEventListener('DOMContentLoaded', function () {
       .then(response => response.json())
       .then(data => {
           if (data.success) {
-              window.location.href = '/dashboard'; // Redirect to a protected dashboard page
+              createCookie('token', data.token); // Store token in a cookie
+              createCookie('userId', data.userId); // Store userId in a cookie
+              window.location.reload(); // Redirect to a protected dashboard page
           } else {
+              closeLoader(loader);
               if(loginErrorMsg) loginErrorMsg.textContent = data.message;
           }
       })
       .catch(err => {
           console.error('Login error:', err);
+          closeLoader(loader);
           if(loginErrorMsg) loginErrorMsg.textContent = 'An error occurred during login.';
       });
   });
