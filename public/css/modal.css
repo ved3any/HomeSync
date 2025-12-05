@@ -1,0 +1,72 @@
+
+.modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.7);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.modal-container {
+    background-color: #151022;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    max-width: 500px;
+    width: 90%;
+    color: white;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.5);
+    transform: scale(0.95);
+    transition: transform 0.3s ease;
+}
+
+.modal-title {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+}
+
+.modal-message {
+    font-size: 1rem;
+    margin-bottom: 1.5rem;
+    color: rgba(255, 255, 255, 0.8);
+}
+
+.modal-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 0.5rem;
+}
+
+.modal-button {
+    padding: 0.75rem 1.5rem;
+    border-radius: 0.5rem;
+    font-weight: 700;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+}
+
+.modal-button.primary {
+    background-color: #2C097F;
+    color: white;
+}
+
+.modal-button.primary:hover {
+    background-color: #3b0c9f;
+}
+
+.modal-button.secondary {
+    background-color: transparent;
+    border: 1px solid #2C097F;
+    color: white;
+}
+
+.modal-button.secondary:hover {
+    background-color: rgba(44, 9, 127, 0.2);
+}

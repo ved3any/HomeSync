@@ -1,6 +1,7 @@
+import { readCookie, createLoader, closeLoader} from './utils.js';
+document.addEventListener('DOMContentLoaded', function () {
 const registerBtn = document.getElementById('register-btn');
         const errorMsg = document.getElementById('error-msg');
-        const nameInput = document.getElementById('name');
         const emailInput = document.getElementById('email');
         const mobileInput = document.getElementById('mobile');
         const passwordInput = document.getElementById('password');
@@ -30,25 +31,19 @@ const registerBtn = document.getElementById('register-btn');
         });
 
         function validateForm() {
-            const name = nameInput.value.trim();
             const email = emailInput.value.trim();
             const mobile = mobileInput.value.trim();
             const password = passwordInput.value.trim();
             const confirmPassword = confirmPasswordInput.value.trim();
             const termsAccepted = termsCheckbox.checked;
 
-            if (!name || !email || !mobile || !password || !confirmPassword) {
+            if (!email || !mobile || !password || !confirmPassword) {
                 errorMsg.textContent = 'Please fill in all fields.';
                 return false;
             }
 
             if (password !== confirmPassword) {
                 errorMsg.textContent = 'Passwords do not match.';
-                return false;
-            }
-
-            if (!/^[a-zA-Z\s]+$/.test(name)) {
-                errorMsg.textContent = 'Name should contain only letters and spaces.';
                 return false;
             }
 
@@ -79,20 +74,21 @@ const registerBtn = document.getElementById('register-btn');
             event.preventDefault();
             if (validateForm()) {
                 errorMsg.textContent = '';
-                const name = nameInput.value.trim();
+                const loader = createLoader();
                 const email = emailInput.value.trim();
                 const mobile = mobileInput.value.trim();
                 const password = passwordInput.value.trim();
 
-                fetch('/register', {
+                fetch('/api/auth/register', {
                     method: 'POST',
                     headers: {
                         'Content-Type': 'application/json'
                     },
-                    body: JSON.stringify({ name, email, mobile, password })
+                    body: JSON.stringify({ email, mobile, password })
                 })
                 .then(response => response.json())
                 .then(data => {
+                    closeLoader(loader);
                     if (data.success) {
                         window.location.href = `/verify.html?email=${encodeURIComponent(email)}`;
                     } else {
@@ -100,8 +96,10 @@ const registerBtn = document.getElementById('register-btn');
                     }
                 })
                 .catch(err => {
+                    closeLoader(loader);
                     console.error('Registration error:', err);
                     errorMsg.textContent = 'An error occurred during registration.';
                 });
             }
         });
+});

@@ -10,6 +10,8 @@
       href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&amp;display=swap"
       rel="stylesheet"
     />
+    <link rel="stylesheet" href="css/modal.css" />
+    <link rel="stylesheet" href="css/loader.css" />
     <link
       href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined"
       rel="stylesheet"
@@ -81,17 +83,7 @@
         </div>
         <!-- Form Fields -->
         <div class="flex flex-col gap-y-4">
-          <!-- Full Name -->
-          <label class="flex flex-col">
-            <p class="pb-2 text-sm font-medium text-text-dark">Full Name</p>
-            <input
-              id="name"
-              class="form-input flex h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-input-border-dark bg-input-bg-dark p-4 text-base font-normal text-text-light placeholder:text-text-dark/80 focus:border-primary focus:outline-0 focus:ring-0"
-              placeholder="Enter your full name"
-              type="text"
-              value=""
-            />
-          </label>
+
           <!-- Email Address -->
           <label class="flex flex-col">
             <p class="pb-2 text-sm font-medium text-text-dark">Email Address</p>
@@ -118,6 +110,7 @@
                 id="mobile"
                 class="form-input flex h-14 w-full min-w-0 flex-1 resize-none overflow-hidden rounded-lg border border-input-border-dark bg-input-bg-dark p-4 pl-20 text-base font-normal text-text-light placeholder:text-text-dark/80 focus:border-primary focus:outline-0 focus:ring-0"
                 placeholder="12345-67890"
+                maxlength="10"
                 type="tel"
                 value=""
               />
@@ -204,5 +197,6 @@
       </main>
     </div>
   </body>
-  <script src="js/registerscript.js"></script>
+  <script type="module" src="./js/utils.js"></script>
+  <script src="js/registerscript.js" type="module"></script>
 </html>
