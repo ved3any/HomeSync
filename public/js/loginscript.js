@@ -1,4 +1,4 @@
-import { createCookie, readCookie, createLoader, closeLoader } from './utils.js';
+import { createCookie, readCookie, createLoader, closeLoader, createModal } from './utils.js';
 
 document.addEventListener('DOMContentLoaded', function () {
   const registerBtn = document.getElementById('register-btn');
@@ -9,7 +9,6 @@ document.addEventListener('DOMContentLoaded', function () {
   const loginForm = document.querySelector('#loginpage form');
   const emailInput = document.querySelector('#loginpage input[type="email"]');
   const passwordInput = document.querySelector('#loginpage input[type="password"]');
-  const loginErrorMsg = document.querySelector('#loginpage .text-red-500');
 
   if (!readCookie('token') || !readCookie('userId')) {
     createCookie('token', '');
@@ -37,7 +36,10 @@ document.addEventListener('DOMContentLoaded', function () {
       const password = passwordInput.value.trim();
 
       if (!email || !password) {
-          if(loginErrorMsg) loginErrorMsg.textContent = 'Please fill in all fields.';
+          createModal('Error', 'Please fill in all fields.', [{
+              text: 'Ok',
+              type: 'primary'
+          }]);
           return;
       }
       const loader = createLoader();
@@ -56,13 +58,19 @@ document.addEventListener('DOMContentLoaded', function () {
               window.location.reload(); // Redirect to a protected dashboard page
           } else {
               closeLoader(loader);
-              if(loginErrorMsg) loginErrorMsg.textContent = data.message;
+              createModal('Error', data.message, [{
+                  text: 'Ok',
+                  type: 'primary'
+              }]);
           }
       })
       .catch(err => {
           console.error('Login error:', err);
           closeLoader(loader);
-          if(loginErrorMsg) loginErrorMsg.textContent = 'An error occurred during login.';
+          createModal('Error', 'An error occurred during login.', [{
+              text: 'Ok',
+              type: 'primary'
+          }]);
       });
   });
 });
