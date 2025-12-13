@@ -6,6 +6,7 @@
     "start": "node app.js"
   },
   "dependencies": {
+    "dotenv": "^17.2.3",
     "@supabase/supabase-js": "^2.86.2",
     "bcrypt": "^6.0.0",
     "cookie-parser": "^1.4.7",
